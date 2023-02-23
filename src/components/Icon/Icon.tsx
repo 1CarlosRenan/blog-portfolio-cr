@@ -36,24 +36,26 @@ export const icons = {
   twitter: Twitter,
 }
 
-interface IIconProps {
-  icon:
-    | 'arrowLeft'
-    | 'arrowRight'
-    | 'check'
-    | 'chevronRight'
-    | 'close'
-    | 'copy'
-    | 'error'
-    | 'figma'
-    | 'github'
-    | 'link'
-    | 'linkedin'
-    | 'menu'
-    | 'pause'
-    | 'play'
-    | 'send'
-    | 'twitter'
+export type IconType =
+  | 'arrowLeft'
+  | 'arrowRight'
+  | 'check'
+  | 'chevronRight'
+  | 'close'
+  | 'copy'
+  | 'error'
+  | 'figma'
+  | 'github'
+  | 'link'
+  | 'linkedin'
+  | 'menu'
+  | 'pause'
+  | 'play'
+  | 'send'
+  | 'twitter'
+
+export interface IIconProps {
+  icon: IconType
   className?: string
 }
 
@@ -62,9 +64,6 @@ export const Icon = (props: IIconProps) => {
   const IconComponent = icons[icon]
 
   return (
-    <>
-      <p>icon</p>
-      <IconComponent aria-hidden className={classes(styles.icon, className)} />
-    </>
+    <IconComponent aria-hidden className={classes(styles.icon, className)} />
   )
 }

@@ -1,3 +1,5 @@
+const svgrPlugin = require('vite-plugin-svgr')
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -14,5 +16,19 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
-  }
+  },
+  viteFinal(config, { configType }) {
+    // customize the Vite config here
+    config.plugins = [
+      ...config.plugins,
+      svgrPlugin({
+        svgrOptions: {
+          icon: true,
+        },
+      })
+    ];
+
+    // return the customized config
+    return config;
+  },
 }
