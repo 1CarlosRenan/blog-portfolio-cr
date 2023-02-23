@@ -54,16 +54,17 @@ interface IIconProps {
     | 'play'
     | 'send'
     | 'twitter'
+  className?: string
 }
 
 export const Icon = (props: IIconProps) => {
-  const { icon } = props
+  const { icon, className } = props
   const IconComponent = icons[icon]
 
   return (
     <>
       <p>icon</p>
-      <IconComponent />
+      <IconComponent aria-hidden className={classes(styles.icon, className)} />
     </>
   )
 }
