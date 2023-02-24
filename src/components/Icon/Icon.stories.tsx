@@ -1,6 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import { Icon, icons, IconType } from './Icon'
+import { Icon } from './Icon'
 
 export default {
   title: 'Icon',
@@ -25,7 +23,7 @@ export const Icons = () => {
     'send',
     'twitter',
   ]
-  console.log(arr)
+
   return (
     <>
       {arr.map((key: any) => {

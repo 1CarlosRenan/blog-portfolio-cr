@@ -3,23 +3,31 @@ import styles from './Text.module.css'
 
 interface ITextProps {
   children: React.ReactNode
-  size: string
-  as?: string
-  align?: string
-  weight?: string
+  size: 's' | 'm' | 'l' | 'xl'
+  as?: 'span' | 'p' | 'strong'
+  align?: 'start' | 'center' | 'auto'
+  weight?: 'regular' | 'medium' | 'bold' | 'auto'
   className?: string
 }
 
 export const Text = (props: ITextProps) => {
-  const { children, size, as, align, weight, className } = props
+  const {
+    children,
+    size = 'm',
+    as: Component = 'span',
+    align = 'auto',
+    weight = 'auto',
+    className,
+  } = props
 
   return (
-    <p
+    <Component
       className={classes(styles.text, className)}
       data-align={align}
       data-size={size}
-      data-weight={weight}>
+      data-weight={weight}
+    >
       {children}
-    </p>
+    </Component>
   )
 }
